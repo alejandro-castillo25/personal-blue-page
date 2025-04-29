@@ -4,6 +4,11 @@
   height: 100dvh;
 }
 
+main {
+  scrollbar-width: none;
+  overflow-x: hidden;
+}
+
 header {
   transition: width 200ms ease-in;
   z-index: 25;
@@ -14,18 +19,18 @@ button {
   cursor: pointer !important;
 }
 button {
+  user-select: none;
   transition: scale 200ms ease-in;
 }
 button:active {
   scale: 0.96 !important;
-  user-select: none;
 }
 
 p {
   text-wrap: pretty;
 }
 .crystal {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
   box-shadow: 0px 0px 20px #00000050 inset, 0 0 10px #00000050 inset;
 }
 
@@ -43,8 +48,13 @@ p {
   }
 
   main {
+     justify-content: start;
      padding-top: calc(var(--spacing) * 4) !important;
   }
+
+  /* .copyright {
+    display: none;
+  } */
 }
 
 
@@ -57,3 +67,4 @@ p {
     opacity: 0;
   }
 }
+

@@ -123,11 +123,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
 * {
   box-sizing: border-box !important;
+  /* outline: 1px solid  rgba(0, 255, 0, 0.541); */
 }
 
 
 :root {
   font-family: system-ui, sans-serif;
 }
+
+

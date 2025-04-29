@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [pluginReact()],
   html: {
     title: "Blue",
+    favicon: "./public/assets/images/star.png"
   },
   server: {
     publicDir: [{

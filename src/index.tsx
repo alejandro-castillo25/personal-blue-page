@@ -8,7 +8,7 @@ if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
 
 
-  document.documentElement.classList.add("dark");
+  // document.documentElement.classList.add("dark");
 
 
   root.render(

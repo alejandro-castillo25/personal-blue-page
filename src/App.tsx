@@ -16,7 +16,7 @@ function App() {
         color="#263abe"
         cursorBallColor="#1a94db"
         cursorBallSize={1.2}
-        ballCount={18}
+        ballCount={12}
         animationSize={25}
         enableMouseInteraction={false}
         enableTransparency={true}
@@ -30,8 +30,8 @@ function App() {
         blend={0.1}
         amplitude={1.0}
         speed={0.3}
-        className="w-full h-full fixed top-0 z-[-1] bg-transparent opacity-40"
-      ></Aurora>
+        className="w-full h-full fixed top-0 z-[-1] bg-transparent opacity-50"
+      />
     </AppContextProvider>
   );
 }
