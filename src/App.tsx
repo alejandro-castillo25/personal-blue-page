@@ -2,7 +2,6 @@ import { AppContextProvider } from "./AppContextProvider";
 import { Header } from "./Header";
 import { Main } from "./Main";
 import "./App.css";
-import Aurora from "@/components/ui/Aurora";
 import Orb from "@/components/ui/Orb";
 
 function App() {
