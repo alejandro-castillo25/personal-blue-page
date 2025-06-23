@@ -90,7 +90,7 @@ export function AppContextProvider({
   useEffect(() => {
     if (musicHowl.current === null) {
       musicHowl.current = new Howl({
-        src: ["/assets/music/indigo.mp3"],
+        src: ["/assets/music/chill.mp3"],
         rate: 0.8,
         loop: true,
         volume: 1.0,
