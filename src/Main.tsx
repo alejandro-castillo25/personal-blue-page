@@ -51,7 +51,6 @@ export function Main() {
     },
   ]);
 
-
   const cards = useRef([
     {
       title: "Who Am I?",
