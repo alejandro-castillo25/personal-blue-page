@@ -22,7 +22,7 @@ function App() {
         hoverIntensity={0.75}
         rotateOnHover={false}
         hue={45}
-        className="fixed top-0 opacity-40 pointer-events-none -z-1"
+        className="fixed top-0 opacity-40 pointer-events-none -z-10"
       />
     </AppContextProvider>
   );

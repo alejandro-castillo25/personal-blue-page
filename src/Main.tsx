@@ -9,6 +9,7 @@ import { translateTo } from "./util";
 import { useAppContext } from "./AppContextProvider";
 import Folder from "@/components/ui/Folder";
 import Stack from "@/components/ui/Stack";
+import { IdCard, CodeXml, FileTerminal, Star } from "lucide-react";
 
 export function Main() {
   const [greetDone, setGreetDone] = useState<boolean>(false);
@@ -177,7 +178,29 @@ export function Main() {
           )}
         </div>
       </SpotlightCard>
-      <section className="rounded-2xl crystal h-[45%] sm:min-h-[20rem] min-h-[12rem] w-full grid place-content-center">
+
+      <section className="rounded-2xl crystal h-[45%] sm:min-h-[20rem] min-h-[12rem] w-full grid place-items-center">
+        {page === 0 && (
+          <CodeXml
+            className="size-[70%]"
+            color="var(--primary)"
+            // strokeWidth={1.5}
+          />
+        )}
+        {page === 1 && (
+          <IdCard
+            className="size-[70%]"
+            color="var(--primary)"
+            strokeWidth={1.5}
+          />
+        )}
+        {page === 2 && (
+          <FileTerminal
+            className="size-[70%]"
+            color="var(--primary)"
+            strokeWidth={1.5}
+          />
+        )}
         {page === 3 && (
           <Folder
             size={1.5}
@@ -209,6 +232,13 @@ export function Main() {
             sendToBackOnClick={true}
             cardDimensions={{ width: 200, height: 200 }}
             cardsData={imagesPage5.current}
+          />
+        )}
+        {page === 6 && (
+          <Star
+            className="size-[70%]"
+            color="var(--primary)"
+            strokeWidth={1.5}
           />
         )}
       </section>
