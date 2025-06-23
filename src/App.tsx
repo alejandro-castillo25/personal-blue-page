@@ -16,13 +16,13 @@ function App() {
         blend={0.1}
         amplitude={1.0}
         speed={0.3}
-        className="w-full h-full fixed top-0 z-[-1] bg-transparent opacity-50"
+        className="w-full h-full fixed top-0 -z-1 bg-transparent opacity-50"
       />
       <Orb
         hoverIntensity={0.75}
         rotateOnHover={false}
         hue={45}
-        className="fixed top-0 opacity-40 pointer-events-none"
+        className="fixed top-0 opacity-40 pointer-events-none -z-1"
       />
     </AppContextProvider>
   );
