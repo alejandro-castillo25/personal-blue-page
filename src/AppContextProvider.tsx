@@ -91,7 +91,7 @@ export function AppContextProvider({
     if (musicHowl.current === null) {
       musicHowl.current = new Howl({
         src: ["/assets/music/chill.mp3"],
-        rate: 0.8,
+        rate: 0.75,
         loop: true,
         volume: 1.0,
         autoplay: true,
