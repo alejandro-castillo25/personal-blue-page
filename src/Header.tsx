@@ -12,6 +12,7 @@ import {
   Languages,
   Volume2,
   VolumeOff,
+  Layers,
 } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
@@ -48,11 +49,12 @@ import {
 } from "@/components/ui/drawer";
 
 import { Howl } from "howler";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { getGreeting, Greeting, translateTo } from "./util";
 import ReactCountryFlag from "react-country-flag";
 import { Lang, Theme, useAppContext } from "./AppContextProvider";
+import FallingText from "@/components/ui/FallingText";
 
 function GetGreetingIcon({ value }: { value: Greeting }) {
   if (value === "Good Morning!")
@@ -63,7 +65,7 @@ function GetGreetingIcon({ value }: { value: Greeting }) {
     return <Moon className="inline size-[1.6rem] mr-3" />;
 }
 
-function OptionsContent() {
+function OptionsContent({ className = "" }) {
   const {
     theme: [theme, setTheme],
     lang: [lang, setLang],
@@ -71,9 +73,11 @@ function OptionsContent() {
     sfx: [sfx, setSfx],
   } = useAppContext()!;
 
+  const [showStack, setShowStack] = useState<boolean>(false);
+
   return (
-    <>
-      <div className="flex flex-row w-full align-center">
+    <section className={`flex flex-col gap-5 mt-5 h-full ${className}`}>
+      <div className="flex flex-row w-full align-center" hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
           {translateTo(lang, "Theme")}:
         </p>
@@ -98,7 +102,7 @@ function OptionsContent() {
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
-      <Label className="flex flex-row w-full align-center">
+      <Label className="flex flex-row w-full align-center" hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Language")}:
         </p>
@@ -162,7 +166,7 @@ function OptionsContent() {
           </SelectContent>
         </Select>
       </Label>
-      <Label>
+      <Label hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Music")}:
         </p>
@@ -174,7 +178,7 @@ function OptionsContent() {
           {music ? <Headphones /> : <HeadphoneOff />}
         </Toggle>
       </Label>
-      <Label>
+      <Label hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Sound Effects")}:
         </p>
@@ -186,7 +190,32 @@ function OptionsContent() {
           {sfx ? <Volume2 /> : <VolumeOff />}
         </Toggle>
       </Label>
-    </>
+
+      <Button
+        variant="outline"
+        className="w-full bg-background/45!"
+        onClick={() => setShowStack((value) => !value)}
+      >
+        <Layers className="inline" />
+        {translateTo(lang, !showStack ? "Stack used" : "Hide Stack used")}
+      </Button>
+      {showStack && <div className={`h-full`}>
+        <FallingText
+          text={`TypeScript JavaScript React TailwindCSS HTML CSS ShadCN Rsbuild Vercel`}
+          highlightWords={[
+            "React",
+            "TypeScript",
+            "TailwindCSS"
+          ]}
+          trigger="click"
+          backgroundColor="transparent"
+          wireframes={false}
+          gravity={0.35}
+          fontSize="2rem"
+          mouseConstraintStiffness={0.1}
+        />
+      </div>}
+    </section>
   );
 }
 
@@ -250,7 +279,7 @@ const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
       </Button>
     </SheetTrigger>
     <SheetContent className="crystal bg-background/55">
-      <SheetHeader>
+      <SheetHeader className="h-full">
         <SheetTitle asChild>
           <h2 className="text-[1.35rem] flex flex-row items-center">
             <GetGreetingIcon value={getGreeting()} />
@@ -258,9 +287,7 @@ const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
           </h2>
         </SheetTitle>
         <SheetDescription aria-description={undefined}></SheetDescription>
-        <div className="flex flex-col gap-5 mt-5">
-          <OptionsContent />
-        </div>
+        <OptionsContent />
         <footer className="flex gap-1 absolute bottom-3 right-3">
           <LinksPanel />
         </footer>
@@ -279,8 +306,8 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
         <AlignJustify className="scale-185 text-foreground" />
       </Button>
     </DrawerTrigger>
-    <DrawerContent className="min-h-[90%] crystal bg-background/55">
-      <DrawerHeader>
+    <DrawerContent className="min-h-[90%] crystal bg-background/55 h-full">
+      <DrawerHeader className="h-full">
         <DrawerTitle asChild>
           <header className="flex items-center w-full h-auto">
             <GetGreetingIcon value={getGreeting()} />
@@ -293,9 +320,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
           </header>
         </DrawerTitle>
         <DrawerDescription></DrawerDescription>
-        <div className="flex flex-col gap-5 mt-5 sm:mx-auto sm:w-[70%]">
-          <OptionsContent />
-        </div>
+        <OptionsContent className="sm:mx-auto sm:w-[70%]" />
       </DrawerHeader>
       <DrawerFooter>
         <DrawerClose asChild>
@@ -303,7 +328,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
             variant="outline"
             className="w-full sm:mx-auto sm:w-[70%] bg-background/35!"
           >
-            <X className="mr-2 inline" />
+            <X className="inline" />
             {translateTo(lang, "Close")}
           </Button>
         </DrawerClose>
@@ -315,6 +340,8 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
 export function Header() {
   const [lang] = useAppContext()!.lang;
   const [sfx] = useAppContext()!.sfx;
+
+  const starCount = useRef<number>(0);
 
   const logoSound = useRef<Howl>(
     new Howl({
@@ -335,7 +362,11 @@ export function Header() {
           className="w-[1.65rem] h-[1.65rem] inline mr-4 text-primary transition-transform duration-800 active:rotate-143 active:scale-125 cursor-pointer"
           fill="var(--primary)"
           onClick={() => {
-            if (sfx) logoSound.current.play();
+            if (sfx) {
+              if (++starCount.current % 10 == 0)
+                logoSound.current.rate(1 + starCount.current / 1000);
+              logoSound.current.play();
+            }
           }}
         />
         {translateTo(lang, "My Personal Page")}

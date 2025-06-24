@@ -21,7 +21,7 @@ button {
 button {
   transition: scale 200ms ease-in;
 }
-button:active {
+button:active, a:active {
   user-select: none;
   scale: 0.96 !important;
 }

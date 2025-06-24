@@ -28,7 +28,9 @@
     "Education": "Educación",
     "At the moment, I'm studying engineering, specifically Systems Engineering at U.T.O., and I'm in my third semester": "En este momento estoy estudiando Ingeniería, específicamente Ingeniería de Sistemas en la U.T.O. Estoy en mi tercer semestre",
     "What I Like": "Lo que me Gusta",
-    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "Me gusta aprender algo nuevo cada día, mantenerme informado sobre lo que sucede a mi alrededor y siempre dar lo mejor de mí"
+    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "Me gusta aprender algo nuevo cada día, mantenerme informado sobre lo que sucede a mi alrededor y siempre dar lo mejor de mí",
+    "Stack used": "Stack utilizado",
+    "Hide Stack used": "Ocultar stack utilizado"
   },
   "pt": {
     "My Personal Page": "Minha Página Pessoal",
@@ -59,7 +61,9 @@
     "Education": "Educação",
     "At the moment, I'm studying engineering, specifically Systems Engineering at U.T.O., and I'm in my third semester": "No momento, estou estudando Engenharia, especificamente Engenharia de Sistemas na U.T.O. Estou no meu terceiro semestre",
     "What I Like": "O que eu Gosto",
-    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "Gosto de aprender algo novo todos os dias, manter-me informado sobre o que acontece ao meu redor e sempre dar o meu melhor"
+    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "Gosto de aprender algo novo todos os dias, manter-me informado sobre o que acontece ao meu redor e sempre dar o meu melhor",
+    "Stack used": "Stack usado",
+    "Hide Stack used": "Ocultar Stack usado"
   },
   "fr": {
     "My Personal Page": "Ma Page Personnelle",
@@ -90,6 +94,8 @@
     "Education": "Éducation",
     "At the moment, I'm studying engineering, specifically Systems Engineering at U.T.O., and I'm in my third semester": "Actuellement, j'étudie l'ingénierie, plus précisément le Génie des Systèmes à l'U.T.O. Je suis en troisième semestre",
     "What I Like": "Ce que j'aime",
-    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "J'aime apprendre quelque chose de nouveau chaque jour, rester informé de ce qui se passe autour de moi et donner toujours le meilleur de moi-même"
+    "I like to learn something new every day, stay informed about what's happening around me, and always do my best": "J'aime apprendre quelque chose de nouveau chaque jour, rester informé de ce qui se passe autour de moi et donner toujours le meilleur de moi-même",
+    "Stack used": "Stack utilisé",
+    "Hide Stack used": "Masquer Stack utilisé"
   }
 }
