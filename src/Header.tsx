@@ -201,7 +201,7 @@ function OptionsContent({ className = "" }) {
       </Button>
       {showStack && <div className={`h-full`}>
         <FallingText
-          text={`TypeScript JavaScript React TailwindCSS HTML CSS ShadCN Rsbuild Vercel`}
+          text={`TypeScript JavaScript React TailwindCSS HTML CSS ShadCN Rsbuild ReactBits`}
           highlightWords={[
             "React",
             "TypeScript",
