@@ -282,9 +282,9 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
     <DrawerContent className="min-h-[90%] crystal bg-background/55">
       <DrawerHeader>
         <DrawerTitle asChild>
-          <header className="flex">
-            <h2 className="text-[1.35rem] flex flex-row items-center">
-              <GetGreetingIcon value={getGreeting()} />
+          <header className="flex items-center w-full h-auto">
+            <GetGreetingIcon value={getGreeting()} />
+            <h2 className="text-[1.35rem] h-full flex items-center">
               {translateTo(lang, getGreeting())}
             </h2>
             <div className="ml-auto">
