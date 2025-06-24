@@ -261,7 +261,7 @@ const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
         <div className="flex flex-col gap-5 mt-5">
           <OptionsContent />
         </div>
-        <footer className="flex absolute bottom-3 right-3">
+        <footer className="flex gap-1 absolute bottom-3 right-3">
           <LinksPanel />
         </footer>
       </SheetHeader>
@@ -287,7 +287,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
             <h2 className="text-[1.35rem] h-full flex items-center">
               {translateTo(lang, getGreeting())}
             </h2>
-            <div className="ml-auto">
+            <div className="ml-auto flex gap-1">
               <LinksPanel />
             </div>
           </header>
