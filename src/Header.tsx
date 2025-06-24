@@ -61,7 +61,8 @@ function GetGreetingIcon({ value }: { value: Greeting }) {
     return <Sun className="inline size-[1.6rem] mr-3" />;
   else if (value === "Good Afternoon!")
     return <SunDim className="inline size-[1.6rem] mr-3" />;
-  return <Moon className="inline size-[1.6rem] mr-3" />;
+  else if (value === "Good Evening!")
+    return <Moon className="inline size-[1.6rem] mr-3" />;
 }
 
 function OptionsContent({ className = "" }) {
@@ -306,9 +307,9 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
     <DrawerContent className="min-h-[90%] crystal bg-background/55 h-full">
       <DrawerHeader className="h-full">
         <DrawerTitle asChild>
-          <header className="flex items-center w-full h-auto">
+          <header className="flex items-center w-full drawer-header">
             <GetGreetingIcon value={getGreeting()} />
-            <h2 className="text-[1.35rem] h-full flex items-center">
+            <h2 className="text-[1.35rem] h-full flex items-center whitespace-nowrap">
               {translateTo(lang, getGreeting())}
             </h2>
             <div className="ml-auto flex gap-1">

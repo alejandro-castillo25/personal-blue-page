@@ -36,14 +36,14 @@ p {
 
 /* ? 25rem */
 @media (max-height: 30rem) {
-  header {
+  header:not(.drawer-header)  {
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
     border-bottom-left-radius: var(--radius-sm);
     width: 4rem;
   }
 
-  header > h1 {
+  header:not(.drawer-header)  > h1 {
     display: none;
   }
 
