@@ -194,7 +194,7 @@ const LinksPanel = () => {
   return (
     <>
       <Button
-        className="rounded-full crystal bg-background/50"
+        className="rounded-full bg-background/35!"
         variant="outline"
         size="icon"
         asChild
@@ -208,7 +208,7 @@ const LinksPanel = () => {
         </a>
       </Button>
       <Button
-        className="rounded-full crystal bg-background/50"
+        className="rounded-full bg-background/35!"
         variant="outline"
         size="icon"
         asChild
@@ -222,7 +222,7 @@ const LinksPanel = () => {
         </a>
       </Button>
       <Button
-        className="rounded-full crystal bg-background/50"
+        className="rounded-full bg-background/35!"
         variant="outline"
         size="icon"
         asChild
@@ -299,7 +299,10 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
       </DrawerHeader>
       <DrawerFooter>
         <DrawerClose asChild>
-          <Button variant="outline" className="w-full sm:mx-auto sm:w-[70%]">
+          <Button
+            variant="outline"
+            className="w-full sm:mx-auto sm:w-[70%] bg-background/45"
+          >
             <X className="mr-2 inline" />
             {translateTo(lang, "Close")}
           </Button>
