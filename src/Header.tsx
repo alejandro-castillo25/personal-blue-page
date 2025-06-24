@@ -17,6 +17,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 import { Toggle } from "@/components/ui/toggle";
 
+import { Github, Linkedin, Mail } from "@/components/ui/Icons";
+
 import {
   Sheet,
   SheetContent,
@@ -188,6 +190,55 @@ function OptionsContent() {
   );
 }
 
+const LinksPanel = () => {
+  return (
+    <>
+      <Button
+        className="rounded-full crystal bg-background/50"
+        variant="outline"
+        size="icon"
+        asChild
+      >
+        <a
+          href="https://github.com/alejandro-castillo25"
+          target="_blank"
+          rel="github"
+        >
+          <Github />
+        </a>
+      </Button>
+      <Button
+        className="rounded-full crystal bg-background/50"
+        variant="outline"
+        size="icon"
+        asChild
+      >
+        <a
+          href="https://www.linkedin.com/in/alejandro-castillo-bustos-a8638636b"
+          target="_blank"
+          rel="github"
+        >
+          <Linkedin />
+        </a>
+      </Button>
+      <Button
+        className="rounded-full crystal bg-background/50"
+        variant="outline"
+        size="icon"
+        asChild
+      >
+        <a
+          href="mailto:jesuscastillo252006@gmail.com"
+          target="_blank"
+          rel="github"
+        >
+          <Mail />
+        </a>
+      </Button>
+    </>
+  );
+};
+
 const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
   <Sheet>
     <SheetTrigger asChild>
@@ -210,6 +261,9 @@ const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
         <div className="flex flex-col gap-5 mt-5">
           <OptionsContent />
         </div>
+        <footer className="flex absolute bottom-3 right-3">
+          <LinksPanel />
+        </footer>
       </SheetHeader>
     </SheetContent>
   </Sheet>
@@ -228,20 +282,25 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
     <DrawerContent className="min-h-[90%] crystal bg-background/55">
       <DrawerHeader>
         <DrawerTitle asChild>
-          <h2 className="text-[1.35rem] flex flex-row items-center">
-            <GetGreetingIcon value={getGreeting()} />
-            {translateTo(lang, getGreeting())}
-          </h2>
+          <header className="flex">
+            <h2 className="text-[1.35rem] flex flex-row items-center">
+              <GetGreetingIcon value={getGreeting()} />
+              {translateTo(lang, getGreeting())}
+            </h2>
+            <div className="ml-auto">
+              <LinksPanel />
+            </div>
+          </header>
         </DrawerTitle>
         <DrawerDescription></DrawerDescription>
-        <div className="flex flex-col gap-5 mt-5">
+        <div className="flex flex-col gap-5 mt-5 sm:mx-auto sm:w-[70%]">
           <OptionsContent />
         </div>
       </DrawerHeader>
       <DrawerFooter>
         <DrawerClose asChild>
-          <Button variant="outline" className="w-full">
-            <X className="mr-2 inline"/>
+          <Button variant="outline" className="w-full sm:mx-auto sm:w-[70%]">
+            <X className="mr-2 inline" />
             {translateTo(lang, "Close")}
           </Button>
         </DrawerClose>
