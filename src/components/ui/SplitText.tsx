@@ -94,7 +94,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       },
     });
 
-    tl.set(targets, { ...from, immediateRender: false, force3D: true });
+    tl.set(targets, { ...from, immediateRender: true, force3D: true });
     tl.to(targets, {
       ...to,
       duration,

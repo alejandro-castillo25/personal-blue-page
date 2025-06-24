@@ -61,8 +61,7 @@ function GetGreetingIcon({ value }: { value: Greeting }) {
     return <Sun className="inline size-[1.6rem] mr-3" />;
   else if (value === "Good Afternoon!")
     return <SunDim className="inline size-[1.6rem] mr-3" />;
-  else if (value === "Good Evening!")
-    return <Moon className="inline size-[1.6rem] mr-3" />;
+  return <Moon className="inline size-[1.6rem] mr-3" />;
 }
 
 function OptionsContent({ className = "" }) {
@@ -199,22 +198,20 @@ function OptionsContent({ className = "" }) {
         <Layers className="inline" />
         {translateTo(lang, !showStack ? "Stack used" : "Hide Stack used")}
       </Button>
-      {showStack && <div className={`h-full`}>
-        <FallingText
-          text={`TypeScript JavaScript React TailwindCSS HTML CSS ShadCN Rsbuild ReactBits`}
-          highlightWords={[
-            "React",
-            "TypeScript",
-            "TailwindCSS"
-          ]}
-          trigger="click"
-          backgroundColor="transparent"
-          wireframes={false}
-          gravity={0.35}
-          fontSize="2rem"
-          mouseConstraintStiffness={0.1}
-        />
-      </div>}
+      {showStack && (
+        <div className={`h-full`}>
+          <FallingText
+            text={`TypeScript JavaScript React TailwindCSS HTML CSS ShadCN Rsbuild ReactBits`}
+            highlightWords={["React", "TypeScript", "TailwindCSS"]}
+            trigger="click"
+            backgroundColor="transparent"
+            wireframes={false}
+            gravity={0.35}
+            fontSize="2rem"
+            mouseConstraintStiffness={0.1}
+          />
+        </div>
+      )}
     </section>
   );
 }

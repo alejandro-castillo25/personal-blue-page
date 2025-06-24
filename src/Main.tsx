@@ -116,7 +116,7 @@ export function Main() {
           ) : (
             <SplitText
               key={page.toString().concat(lang)}
-              text={translateTo(lang, cards.current[page - 1].title as any)}
+              text={translateTo(lang, cards.current[page - 1].title)}
               delay={50}
               splitType="words, chars"
               from={{ opacity: 0, y: 40 }}
