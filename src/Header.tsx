@@ -75,7 +75,7 @@ function OptionsContent() {
     <>
       <div className="flex flex-row w-full align-center">
         <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
-          {translateTo(lang, "Theme")}:{" "}
+          {translateTo(lang, "Theme")}:
         </p>
         <ToggleGroup
           className="ml-auto flex w-[40%]"
@@ -99,7 +99,7 @@ function OptionsContent() {
         </ToggleGroup>
       </div>
       <Label className="flex flex-row w-full align-center">
-        <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
+        <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Language")}:
         </p>
         <Select value={lang} onValueChange={(value) => setLang(value as Lang)}>
@@ -163,7 +163,7 @@ function OptionsContent() {
         </Select>
       </Label>
       <Label>
-        <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
+        <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Music")}:
         </p>
         <Toggle
@@ -175,7 +175,7 @@ function OptionsContent() {
         </Toggle>
       </Label>
       <Label>
-        <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
+        <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
           {translateTo(lang, "Sound Effects")}:
         </p>
         <Toggle

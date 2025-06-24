@@ -19,10 +19,10 @@ button {
   cursor: pointer !important;
 }
 button {
-  user-select: none;
   transition: scale 200ms ease-in;
 }
 button:active {
+  user-select: none;
   scale: 0.96 !important;
 }
 
