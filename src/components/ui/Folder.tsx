@@ -119,7 +119,7 @@ const Folder: React.FC<FolderProps> = ({
                 onMouseLeave={(e) => handlePaperMouseLeave(e, i)}
                 className={`absolute z-20 bottom-[30%] left-1/2 transition-all duration-300 ease-in-out grid place-content-center ${
                   !open
-                    ? "transform -translate-x-1/2 translate-y-[10%] group-hover:translate-y-0 scale-25"
+                    ? "transform -translate-x-1/2 translate-y-[10%] group-hover:translate-y-0 scale-80"
                     : "hover:scale-110 "
                 } ${sizeClasses}`}
                 style={{

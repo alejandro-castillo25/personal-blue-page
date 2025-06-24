@@ -96,13 +96,12 @@ export function Main() {
                 key={lang}
                 text={translateTo(lang, "Hello!")}
                 delay={100}
-                animationFrom={{
-                  opacity: 0,
-                  transform: "translate3d(0,50px,0)",
-                }}
-                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                splitType="words, chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
                 threshold={0.2}
                 rootMargin="-50px"
+                className="mr-2.5"
                 onLetterAnimationComplete={() => setGreetDone(true)}
               />
               <GradientText
@@ -118,12 +117,10 @@ export function Main() {
             <SplitText
               key={page.toString().concat(lang)}
               text={translateTo(lang, cards.current[page - 1].title as any)}
-              delay={30}
-              animationFrom={{
-                opacity: 0,
-                transform: "translate3d(0,50px,0)",
-              }}
-              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              delay={50}
+              splitType="words, chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
               threshold={0.2}
               rootMargin="-50px"
             />
