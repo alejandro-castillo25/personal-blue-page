@@ -305,7 +305,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
       </Button>
     </DrawerTrigger>
     <DrawerContent className="min-h-[90%] crystal bg-background/55 h-full">
-      <DrawerHeader className="h-full">
+      <DrawerHeader className="h-full pb-0!">
         <DrawerTitle asChild>
           <header className="flex items-center w-full drawer-header">
             <GetGreetingIcon value={getGreeting()} />
@@ -320,7 +320,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
         <DrawerDescription></DrawerDescription>
         <OptionsContent className="sm:mx-auto sm:w-[70%]" />
       </DrawerHeader>
-      <DrawerFooter>
+      <DrawerFooter className="pt-0!">
         <DrawerClose asChild>
           <Button
             variant="outline"
