@@ -301,7 +301,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
         <DrawerClose asChild>
           <Button
             variant="outline"
-            className="w-full sm:mx-auto sm:w-[70%] bg-background/40!"
+            className="w-full sm:mx-auto sm:w-[70%] bg-background/30!"
           >
             <X className="mr-2 inline" />
             {translateTo(lang, "Close")}
