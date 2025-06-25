@@ -93,7 +93,7 @@ export function AppContextProvider({
         src: ["/assets/music/chill.mp3"],
         rate: 0.75,
         loop: true,
-        volume: 1.0,
+        volume: 0.85,
         autoplay: true,
         preload: true,
       });
