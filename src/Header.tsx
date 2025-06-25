@@ -318,13 +318,13 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
           </header>
         </DrawerTitle>
         <DrawerDescription></DrawerDescription>
-        <OptionsContent className="sm:mx-auto sm:w-[70%]" />
+        <OptionsContent className="sm:mx-auto sm:w-[65%]" />
       </DrawerHeader>
       <DrawerFooter className="pt-0!">
         <DrawerClose asChild>
           <Button
             variant="outline"
-            className="w-full sm:mx-auto sm:w-[70%] bg-background/35!"
+            className="w-full sm:mx-auto sm:w-[65%] bg-background/35!"
           >
             <X className="inline" />
             {translateTo(lang, "Close")}
