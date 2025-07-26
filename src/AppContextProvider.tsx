@@ -144,7 +144,6 @@ export function AppContextProvider({
         if (NOT_ALLOWED.includes(key as any)) return;
 
         stack.push(key);
-        console.log(stack);
         
 
         const showToast = (sentence: string) => {
