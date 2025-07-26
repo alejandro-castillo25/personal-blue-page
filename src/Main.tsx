@@ -54,28 +54,28 @@ export function Main() {
 
   const cards = useRef([
     {
-      title: "Who Am I?",
-      text: "My full name is Alejandro Castillo Bustos. I am currently an engineering student, I live in Bolivia, and my favorite color is blue (surprisingly)",
+      title: "who",
+      text: "whoTxt",
     },
     {
-      title: "What I Do",
-      text: "To date, I've become deeply immersed in the programming world. Through the knowledge I've acquired over these past years, I've developed the confidence to tackle significant projects and bring ideas to life",
+      title: "do",
+      text: "doTxt",
     },
     {
-      title: "Programming Languages",
-      text: "The programming languages I have experience with and thoroughly enjoy using for professional purposes are TypeScript, JavaScript, and Rust",
+      title: "proLang",
+      text: "proLangTxt",
     },
     {
-      title: "Projects",
-      text: "The projects I've worked on so far aim to showcase my skills in specific areas and explore new technologies that emerge over time",
+      title: "projects",
+      text: "projectsTxt",
     },
     {
-      title: "Education",
-      text: "At the moment, I'm studying engineering, specifically Systems Engineering at U.T.O., and I'm in my third semester",
+      title: "edu",
+      text: "eduTxt",
     },
     {
-      title: "What I Like",
-      text: "I like to learn something new every day, stay informed about what's happening around me, and always do my best",
+      title: "like",
+      text: "likeTxt",
     },
   ] as const);
 
@@ -94,14 +94,13 @@ export function Main() {
             <>
               <SplitText
                 key={lang}
-                text={translateTo(lang, "Hello!")}
+                text={translateTo(lang).hello + " "}
                 delay={100}
                 splitType="words, chars"
                 from={{ opacity: 0, y: 40 }}
                 to={{ opacity: 1, y: 0 }}
                 threshold={0.2}
                 rootMargin="-50px"
-                className="mr-2.5"
                 onLetterAnimationComplete={() => setGreetDone(true)}
               />
               <GradientText
@@ -110,13 +109,14 @@ export function Main() {
                 showBorder={false}
                 className={greetDone ? "name" : "opacity-0"}
               >
-                {translateTo(lang, "I'm Alejandro")}
+                {translateTo(lang).im}
               </GradientText>
             </>
           ) : (
             <SplitText
               key={page.toString().concat(lang)}
-              text={translateTo(lang, cards.current[page - 1].title)}
+              text={translateTo(lang).cards[cards.current[page - 1].title]}
+              // text={translateTo(lang, cards.current[page - 1].title)}
               delay={50}
               splitType="words, chars"
               from={{ opacity: 0, y: 40 }}
@@ -127,12 +127,12 @@ export function Main() {
           )}
         </h2>
         <p className="flex-auto flex items-center">
-          {translateTo(
-            lang,
-            page == 0
-              ? "Welcome! this is an interactive web page where you can learn about me. To get started simply press the button below"
-              : (cards.current[page - 1].text as any)
-          )}
+     
+          {
+            translateTo(lang).cards[
+              page === 0 ? "welcomeTxt" : cards.current[page - 1].text
+            ]
+          }
           {"."}
         </p>
         <div className="flex flex-row w-full">
@@ -145,7 +145,7 @@ export function Main() {
               }}
             >
               <ArrowLeft className="transition group-hover:scale-125 ease-in duration-200" />
-              {translateTo(lang, "Back")}
+              {translateTo(lang).buttons.back}
             </Button>
           )}
           {page === 0 && (
@@ -158,7 +158,7 @@ export function Main() {
               }}
             >
               <Play className="transition group-hover:scale-125 ease-in duration-200" />
-              {translateTo(lang, "Start")}
+              {translateTo(lang).buttons.start}
             </Button>
           )}
           {page > 0 && page < cards.current.length && (
@@ -169,7 +169,7 @@ export function Main() {
                 setPage((n) => ++n);
               }}
             >
-              {translateTo(lang, "Next")}
+              {translateTo(lang).buttons.next}
               <ArrowRight className="transition group-hover:scale-125 ease-in duration-200" />
             </Button>
           )}
@@ -240,7 +240,7 @@ export function Main() {
         )}
       </section>
 
-      <p className="copyright text-[0.65rem] opacity-15 absolute bottom-0 right-0 items-center select-none">
+      <p aria-hidden="true" className="copyright text-[0.65rem] opacity-15 absolute bottom-0 right-0 items-center select-none">
         © 2025 Alejandro Castillo
       </p>
     </main>

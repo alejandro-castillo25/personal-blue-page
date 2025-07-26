@@ -56,12 +56,13 @@ import ReactCountryFlag from "react-country-flag";
 import { Lang, Theme, useAppContext } from "./AppContextProvider";
 import FallingText from "@/components/ui/FallingText";
 
+import { toast } from "sonner";
+
 function GetGreetingIcon({ value }: { value: Greeting }) {
-  if (value === "Good Morning!")
-    return <Sun className="inline size-[1.6rem] mr-3" />;
-  else if (value === "Good Afternoon!")
+  if (value === "morning") return <Sun className="inline size-[1.6rem] mr-3" />;
+  else if (value === "afternoon")
     return <SunDim className="inline size-[1.6rem] mr-3" />;
-  else if (value === "Good Evening!")
+  else if (value === "evening")
     return <Moon className="inline size-[1.6rem] mr-3" />;
 }
 
@@ -79,7 +80,7 @@ function OptionsContent({ className = "" }) {
     <section className={`flex flex-col gap-5 mt-5 h-full ${className}`}>
       <div className="flex flex-row w-full align-center" hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem]">
-          {translateTo(lang, "Theme")}:
+          {translateTo(lang).buttons.theme}:
         </p>
         <ToggleGroup
           className="ml-auto flex w-[40%]"
@@ -104,7 +105,7 @@ function OptionsContent({ className = "" }) {
       </div>
       <Label className="flex flex-row w-full align-center" hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
-          {translateTo(lang, "Language")}:
+          {translateTo(lang).buttons.lang}:
         </p>
         <Select value={lang} onValueChange={(value) => setLang(value as Lang)}>
           <SelectTrigger className="ml-auto flex w-[40%] active:scale-100!">
@@ -161,14 +162,14 @@ function OptionsContent({ className = "" }) {
             </SelectItem>
             <SelectItem value="system">
               <Languages />
-              {translateTo(lang, "System")}
+              {translateTo(lang).buttons.system}
             </SelectItem>
           </SelectContent>
         </Select>
       </Label>
       <Label hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
-          {translateTo(lang, "Music")}:
+          {translateTo(lang).buttons.system}:
         </p>
         <Toggle
           className="ml-auto flex w-[40%]"
@@ -180,7 +181,7 @@ function OptionsContent({ className = "" }) {
       </Label>
       <Label hidden={showStack}>
         <p className="flex flex-col justify-center font-semibold text-[0.9rem] select-text">
-          {translateTo(lang, "Sound Effects")}:
+          {translateTo(lang).buttons.sfx}:
         </p>
         <Toggle
           className="ml-auto flex w-[40%]"
@@ -197,7 +198,7 @@ function OptionsContent({ className = "" }) {
         onClick={() => setShowStack((value) => !value)}
       >
         <Layers className="inline" />
-        {translateTo(lang, !showStack ? "Stack used" : "Hide Stack used")}
+        {translateTo(lang).buttons[!showStack ? "stack" : "hideStack"]}
       </Button>
       {showStack && (
         <div className={`h-full`}>
@@ -281,7 +282,7 @@ const OptionPanelSheet = ({ lang }: { lang: Lang }) => (
         <SheetTitle asChild>
           <h2 className="text-[1.35rem] flex flex-row items-center">
             <GetGreetingIcon value={getGreeting()} />
-            {translateTo(lang, getGreeting())}
+            {translateTo(lang).greeting[getGreeting()]}
           </h2>
         </SheetTitle>
         <SheetDescription aria-description={undefined}></SheetDescription>
@@ -310,7 +311,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
           <header className="flex items-center w-full drawer-header">
             <GetGreetingIcon value={getGreeting()} />
             <h2 className="text-[1.35rem] h-full flex items-center whitespace-nowrap">
-              {translateTo(lang, getGreeting())}
+              {translateTo(lang).greeting[getGreeting()]}
             </h2>
             <div className="ml-auto flex gap-1">
               <LinksPanel />
@@ -327,7 +328,7 @@ const OptionPanelDrawer = ({ lang }: { lang: Lang }) => (
             className="w-full sm:mx-auto sm:w-[65%] bg-background/35!"
           >
             <X className="inline" />
-            {translateTo(lang, "Close")}
+            {translateTo(lang).buttons.close}
           </Button>
         </DrawerClose>
       </DrawerFooter>
@@ -360,14 +361,30 @@ export function Header() {
           className="w-[1.65rem] h-[1.65rem] inline mr-4 text-primary transition-transform duration-800 active:rotate-143 active:scale-125 cursor-pointer"
           fill="var(--primary)"
           onClick={() => {
-            if (sfx) {
-              if (++starCount.current % 10 == 0)
-                logoSound.current.rate(1 + starCount.current / 1000);
-              logoSound.current.play();
+            const SPECIAL = 11;
+
+            // const msgs = [
+            //   "text 1",
+            //   "text 2",
+            //   "text 3",
+            //   "text 4",
+            //   "text 5",
+            //   "text 6",
+            // ] as const;
+
+            if (++starCount.current % SPECIAL == 0) {
+              // toast(
+              //   msgs[
+              //     Math.floor((starCount.current - 1) / SPECIAL) % msgs.length
+              //   ] as string
+              // );
+
+              logoSound.current.rate(1 + starCount.current / 1000);
             }
+            if (sfx) logoSound.current.play();
           }}
         />
-        {translateTo(lang, "My Personal Page")}
+        {translateTo(lang).title}
       </h1>
     </header>
   );
