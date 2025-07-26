@@ -176,7 +176,7 @@ export function Main() {
         </div>
       </SpotlightCard>
 
-      <section className="rounded-2xl crystal bg-background/50 h-[45%] sm:min-h-[20rem] min-h-[12rem] w-full grid place-items-center">
+      <section className="rounded-md crystal bg-background/50 h-[45%] sm:min-h-[20rem] min-h-[12rem] w-full grid place-items-center border">
         {page === 0 && (
           <CodeXml
             className="size-[70%]"

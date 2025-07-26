@@ -363,23 +363,79 @@ export function Header() {
           onClick={() => {
             const SPECIAL = 11;
 
-            // const msgs = [
-            //   "text 1",
-            //   "text 2",
-            //   "text 3",
-            //   "text 4",
-            //   "text 5",
-            //   "text 6",
-            // ] as const;
+            //? '<skip>'  ->  doesn't show anything
+            //? '<exit>'  ->  closes the page
+            const msgs = [
+              "A star",
+              "A blue star",
+              "A nice star",
+              "It's a nice blue star",
+              "<skip>",
+              "Nice star huh",
+              "I wonder why is it up there",
+              "Probably it's like the logo or something",
+              "Because it's right next to the title",
+              "It looks cool tho",
+              "<skip>",
+              "Overall it's a pretty star",
+              "<skip>",
+              "<skip>",
+              "You really like that star, don't you?",
+              "Maybe if you click it enough, something will happen",
+              "<skip>",
+              "Hmm...",
+              "Wait for it...",
+              "Wait for it......",
+              "Wait for it.........",
+              "Well, nothing happened",
+              "How unexpected",
+              "<skip>",
+              "Yeah...",
+              "Maybe you should leave that star alone and do something else",
+              "Like actually reading the page...",
+              "It was only an advice",
+              "A really good one",
+              "<skip>",
+              "...",
+              "<skip>",
+              "<skip>",
+              "Why do you keep clicking it?",
+              "The poor star must be tired",
+              "(like me at this point)",
+              "<skip>",
+              "Don't you get tired...?",
+              "You clicked it like... A LOT, a lot of times already",
+              "<skip>",
+              "There's not anything as a reward for doing this, I promise",
+              "So just stop it",
+              "<skip>",
+              "<skip>",
+              "That's it, if you keep going, I'll close the page",
+              "I'm serious",
+              "<skip>",
+              "I warned you",
+              "3...",
+              "2...",
+              "1...",
+              "<exit>",
+              "Did it work?",
+              "...",
+              "<skip>"
+            ];
 
-            if (++starCount.current % SPECIAL == 0) {
-              // toast(
-              //   msgs[
-              //     Math.floor((starCount.current - 1) / SPECIAL) % msgs.length
-              //   ] as string
-              // );
+            if (++starCount.current % SPECIAL === 0) {
+              const msg =
+                msgs[
+                  Math.floor((starCount.current - 1) / SPECIAL) % msgs.length
+                ];
 
               logoSound.current.rate(1 + starCount.current / 1000);
+
+              if (msg === "<exit>") {
+                toast("Bye!");
+                setTimeout(window.close, 2000);
+              }
+              if (msg !== "<skip>" && msg !== "<exit>") toast(msg);
             }
             if (sfx) logoSound.current.play();
           }}
